@@ -43,21 +43,21 @@ export default function PerfilPage() {
 
   // Preparar datos del perfil para el componente ProfileCard
   const profileData = perfil ? {
-    tipoIdentificacion: perfil.tipo || "Cédula de Ciudadanía",
-    numeroIdentificacion: perfil.numero || "8435912035",
-    nombresCompleto: perfil.nombreCompleto || "Carmen Cristina Ceballos Carrion",
-    fechaNacimiento: perfil.fechaNacimiento || "2000-06-03T05:00:00.000Z",
-    sexoBiologico: perfil.sexo || "Femenino",
-    direccionResidencia: perfil.direccion || "PUENTE NACIONAL | SANTANDER |",
-    numeroCelular: perfil.celular || "3202342616",
-    correoElectronico: perfil.correo || "facturacionhrv@gmail.com",
+    tipoIdentificacion: perfil.tipo || "",
+    numeroIdentificacion: perfil.numero || "",
+    nombresCompleto: perfil.nombreCompleto || "",
+    fechaNacimiento: perfil.fechaNacimiento || "",
+    sexoBiologico: perfil.sexo || "",
+    direccionResidencia: perfil.direccion || "",
+    numeroCelular: perfil.celular || "",
+    correoElectronico: perfil.correo || "",
   } : undefined;
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       <DNAParticles />
       
-      <Header patientName="Carmen Cristina Ceballos Carrion" />
+      <Header />
 
       <div className="flex relative z-10">
         <Sidebar activeItem="profile" />

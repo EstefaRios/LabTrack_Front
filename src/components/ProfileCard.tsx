@@ -16,15 +16,29 @@ interface ProfileCardProps {
 }
 
 export default function ProfileCard({ profileData }: ProfileCardProps) {
+  const formatDate = (s?: string) => {
+    if (!s) return ""
+    const m = s.match(/^(\d{4})-(\d{2})-(\d{2})/)
+    if (m) {
+      const [_, y, mo, d] = m
+      return `${d}/${mo}/${y}`
+    }
+    try {
+      return new Date(s).toLocaleDateString()
+    } catch {
+      return s
+    }
+  }
+
   const defaultData: ProfileData = {
-    tipoIdentificacion: "Cédula de Ciudadanía",
-    numeroIdentificacion: "8435912035",
-    nombresCompleto: "Carmen Cristina Ceballos Carrion",
-    fechaNacimiento: "2000-06-03T05:00:00.000Z",
-    sexoBiologico: "Femenino",
-    direccionResidencia: "PUENTE NACIONAL | SANTANDER |",
-    numeroCelular: "3202342616",
-    correoElectronico: "facturacionhrv@gmail.com",
+    tipoIdentificacion: "",
+    numeroIdentificacion: "",
+    nombresCompleto: "",
+    fechaNacimiento: "",
+    sexoBiologico: "",
+    direccionResidencia: "",
+    numeroCelular: "",
+    correoElectronico: "",
   }
 
   const data = profileData || defaultData
@@ -69,7 +83,7 @@ export default function ProfileCard({ profileData }: ProfileCardProps) {
     },
     {
       label: "FECHA DE NACIMIENTO",
-      value: new Date(data.fechaNacimiento).toLocaleDateString(),
+      value: formatDate(data.fechaNacimiento),
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path

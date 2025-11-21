@@ -15,7 +15,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-white relative overflow-hidden">
       <DNAParticles />
       
-      <Header patientName="Carmen Cristina Ceballos Carrion" />
+      <Header />
 
       <div className="flex relative z-10">
         <Sidebar activeItem="home" />
